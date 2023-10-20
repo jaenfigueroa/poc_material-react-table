@@ -1,4 +1,4 @@
-import { Button, Paper, TextField, Typography } from '@mui/material'
+import { Button, Paper, TextField } from '@mui/material'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -7,11 +7,6 @@ import FormControl from '@mui/material/FormControl'
 const SectionCuracion = () => {
   return (
     <>
-      {/* ACTUALIZAR ESTADO DE LA REGLA */}
-      <Typography variant='body1' pt={4} pb={1} color={'primary.light'}>
-        CREAR NUEVA PROPUESTA
-      </Typography>
-
       <Paper sx={{ p: 2 }}>
         <FormControl>
           <RadioGroup
