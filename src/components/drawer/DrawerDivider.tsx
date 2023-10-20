@@ -33,8 +33,8 @@ function CustomTabPanel(props: TabPanelProps) {
 
 function a11yProps(index: number) {
   return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   }
 }
 
@@ -47,7 +47,6 @@ const DrawerDivider = () => {
 
   return (
     <Box sx={{ width: '100%' }}>
-      {/* NEW */}
       <AppBar position='static'>
         <Tabs
           value={value}
@@ -63,18 +62,6 @@ const DrawerDivider = () => {
         </Tabs>
       </AppBar>
 
-      {/* OLD */}
-      {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label='basic tabs example'
-        >
-          <Tab label='Detalles de la regla' {...a11yProps(0)} />
-          <Tab label='Agregar propuesta' {...a11yProps(1)} />
-          <Tab label='Historial de propuestas' {...a11yProps(2)} />
-        </Tabs>
-      </Box> */}
       <CustomTabPanel value={value} index={0}>
         <React.Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
