@@ -6,41 +6,39 @@ import FormControl from '@mui/material/FormControl'
 
 const SectionCuracion = () => {
   return (
-    <>
-      <Paper sx={{ p: 2 }}>
-        <FormControl>
-          <RadioGroup
-            aria-labelledby='demo-radio-buttons-group-label'
-            defaultValue='female'
-            name='radio-buttons-group'
-          >
-            <FormControlLabel
-              value='activar'
-              control={<Radio />}
-              label='Activar regla'
-            />
-            <FormControlLabel
-              value='desactivar'
-              control={<Radio />}
-              label='Desactivar regla'
-            />
-          </RadioGroup>
-
-          {/* SUSTENTO */}
-          <TextField
-            hiddenLabel
-            id='filled-hidden-label-normal'
-            variant='outlined'
-            label='Sustento'
-            sx={{ mt: 3 }}
+    <Paper sx={{ p: 2 }}>
+      <FormControl>
+        <RadioGroup
+          aria-labelledby='demo-radio-buttons-group-label'
+          defaultValue='female'
+          name='radio-buttons-group'
+        >
+          <FormControlLabel
+            value='activar'
+            control={<Radio />}
+            label='Activar regla'
           />
+          <FormControlLabel
+            value='desactivar'
+            control={<Radio />}
+            label='Desactivar regla'
+          />
+        </RadioGroup>
 
-          <Button variant='contained' sx={{ p: 1.5, mt: 2 }}>
-            Guardar
-          </Button>
-        </FormControl>
-      </Paper>
-    </>
+        {/* SUSTENTO */}
+        <TextField
+          hiddenLabel
+          id='filled-hidden-label-normal'
+          variant='outlined'
+          label='Sustento'
+          sx={{ mt: 3 }}
+        />
+
+        <Button variant='contained' sx={{ p: 1.5, mt: 2 }}>
+          Guardar
+        </Button>
+      </FormControl>
+    </Paper>
   )
 }
 
