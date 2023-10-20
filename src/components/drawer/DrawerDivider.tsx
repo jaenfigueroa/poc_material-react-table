@@ -7,6 +7,7 @@ import Tab from '@mui/material/Tab'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import { LinearProgress } from '@mui/material'
+import SectionDetails from './SectionDetails'
 
 const Curacion = React.lazy(() => import('./SectionCuracion'))
 const History = React.lazy(() => import('./SectionHistory'))
@@ -47,7 +48,7 @@ function a11yProps(index: number) {
 
 export default function DrawerDivider() {
   const theme = useTheme()
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState(1)
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
@@ -68,8 +69,9 @@ export default function DrawerDivider() {
           variant='fullWidth'
           aria-label='full width tabs example'
         >
-          <Tab label='Curación de reglas' {...a11yProps(0)} />
-          <Tab label='Historial de cambios' {...a11yProps(1)} />
+          <Tab label='Detalles de la regla' {...a11yProps(0)} />
+          <Tab label='Agregar propuesta' {...a11yProps(1)} />
+          <Tab label='Historial de propuestas' {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -80,10 +82,17 @@ export default function DrawerDivider() {
         <TabPanel value={value} index={0} dir={theme.direction}>
           {/* CONTENIDO */}
           <React.Suspense fallback={<LinearProgress />}>
-            <Curacion />
+            <SectionDetails />
           </React.Suspense>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
+          {/* CONTENIDO */}
+          <React.Suspense fallback={<LinearProgress />}>
+            <Curacion />
+          </React.Suspense>
+        </TabPanel>
+
+        <TabPanel value={value} index={2} dir={theme.direction}>
           {/* CONTENIDO */}
           <React.Suspense fallback={<LinearProgress />}>
             <History />

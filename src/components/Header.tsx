@@ -11,6 +11,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import DownloadIcon from '@mui/icons-material/Download'
 import HistoryIcon from '@mui/icons-material/History'
 import ToogleTheme from '../theme/toogleTheme'
+import SyncAltIcon from '@mui/icons-material/SyncAlt'
 import { Avatar } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import { AppContext } from '../context/AppContext'
@@ -68,12 +69,21 @@ export default function ButtonAppBar() {
               >
                 <MenuItem>
                   <ListItemIcon>
+                    <SyncAltIcon />
+                  </ListItemIcon>
+                  <Typography variant='button' noWrap>
+                    Sincronizar propuestas
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <ListItemIcon>
                     <HistoryIcon />
                   </ListItemIcon>
                   <Typography variant='button' noWrap>
-                    Revertir cambios
+                    Revertir propuestas no sincronizadas
                   </Typography>
                 </MenuItem>
+
                 <MenuItem>
                   <ListItemIcon>
                     <DownloadIcon />
@@ -84,7 +94,7 @@ export default function ButtonAppBar() {
                 </MenuItem>
               </Menu>
 
-              {/* AVATAR */}
+              {/* avatar */}
               <Avatar style={{ marginLeft: 15 }} />
             </>
           )}
