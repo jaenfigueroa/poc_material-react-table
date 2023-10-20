@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { Box, Stack, useTheme } from '@mui/material'
 import { useState } from 'react'
-import TemporaryDrawer from './Drawer'
+import DrawerMain from '../drawer'
 
 const Aside = () => {
   const theme = useTheme()
@@ -85,7 +85,7 @@ const Aside = () => {
           </Select>
 
           {/* MOSTRAR MODAL DE MAS INFO */}
-          <TemporaryDrawer />
+          <DrawerMain />
         </FormControl>
       </Stack>
     </Box>

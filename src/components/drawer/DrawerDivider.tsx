@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import { LinearProgress } from '@mui/material'
 
-const Curacion = React.lazy(() => import('./Curacion'))
-const History = React.lazy(() => import('./History'))
+const Curacion = React.lazy(() => import('./SectionCuracion'))
+const History = React.lazy(() => import('./SectionHistory'))
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -45,7 +45,7 @@ function a11yProps(index: number) {
   }
 }
 
-export default function MoreInfo() {
+export default function DrawerDivider() {
   const theme = useTheme()
   const [value, setValue] = React.useState(0)
 

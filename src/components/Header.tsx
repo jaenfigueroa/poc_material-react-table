@@ -38,7 +38,12 @@ export default function ButtonAppBar() {
       >
         <Toolbar>
           {/* LOGO */}
-          <Typography variant='h4' component='div' sx={{ flexGrow: 1 }} fontWeight={'bold'}>
+          <Typography
+            variant='h4'
+            component='div'
+            sx={{ flexGrow: 1 }}
+            fontWeight={'bold'}
+          >
             Pacifico
           </Typography>
 
@@ -47,7 +52,7 @@ export default function ButtonAppBar() {
 
           {isLogged && (
             <>
-              {/* selector */}
+              {/* selector para otras acciones */}
               <IconButton onClick={handleClick}>
                 <MoreVertIcon sx={{ color: 'white' }} fontSize='large' />
               </IconButton>

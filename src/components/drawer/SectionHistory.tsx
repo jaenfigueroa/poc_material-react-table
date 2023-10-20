@@ -9,13 +9,13 @@ import TimelineDot from '@mui/lab/TimelineDot'
 import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent'
-import { HISTORY } from '../data/history'
+import { HISTORY } from '../../data/history'
 import { Suspense, lazy } from 'react'
 import { LinearProgress } from '@mui/material'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
-const History = () => {
+const SectionHistory = () => {
   return (
     <>
       {/* LISTA DE USUARIOS */}
@@ -76,4 +76,4 @@ const History = () => {
   )
 }
 
-export default History
+export default SectionHistory

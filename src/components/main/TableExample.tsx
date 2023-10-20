@@ -42,7 +42,7 @@ const rows = [
   { id: 18, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ]
 
-export default function DataTable() {
+export default function TableExample() {
   return (
     <div style={{ height: '630px', width: '100%' }}>
       <DataGrid

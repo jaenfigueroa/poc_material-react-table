@@ -3,14 +3,14 @@ import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
 import { Suspense, lazy, useState } from 'react'
 import { LinearProgress } from '@mui/material'
-const MoreInfo = lazy(() => import('./MoreInfo'))
+const DrawerDivider = lazy(() => import('./DrawerDivider'))
 
-const TemporaryDrawer = () => {
-  const [isVisible, setIsVisible] = useState(false)
+const DrawerMain = () => {
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false)
 
   // ABRIR EL DRAWER
   const toggleDrawer = (open: boolean) => () => {
-    setIsVisible(open)
+    setIsDrawerVisible(open)
   }
 
   return (
@@ -18,11 +18,15 @@ const TemporaryDrawer = () => {
       <Button onClick={toggleDrawer(true)} sx={{ mt: 32 }}>
         Abrir drawer
       </Button>
-      <Drawer anchor='right' open={isVisible} onClose={toggleDrawer(false)}>
+      <Drawer
+        anchor='right'
+        open={isDrawerVisible}
+        onClose={toggleDrawer(false)}
+      >
         <Box sx={{ width: '600px' }}>
           {/* CONTENDIDO */}
           <Suspense fallback={<LinearProgress />}>
-            <MoreInfo />
+            <DrawerDivider />
           </Suspense>
         </Box>
       </Drawer>
@@ -30,4 +34,4 @@ const TemporaryDrawer = () => {
   )
 }
 
-export default TemporaryDrawer
+export default DrawerMain
