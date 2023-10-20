@@ -4,8 +4,8 @@ import { ToggleColorMode } from './theme/themeContext.tsx'
 import { AppRoutes } from './routes/AppRouter.tsx'
 import { LinearProgress } from '@mui/material'
 import { AppProvider } from './context/AppContext.tsx'
+import { isMSWOn } from './config/worker.ts'
 
-/*
 if(import.meta.env.DEV && isMSWOn){
   const { worker } = await import('../mocks/browser.ts')
 
@@ -13,7 +13,6 @@ if(import.meta.env.DEV && isMSWOn){
     waitUntilReady: true
   });
 }
-*/
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
