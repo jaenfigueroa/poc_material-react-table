@@ -7,7 +7,25 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import DownloadIcon from '@mui/icons-material/Download'
 import HistoryIcon from '@mui/icons-material/History'
 import SyncAltIcon from '@mui/icons-material/SyncAlt'
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
+
+const Elements = [
+  {
+    icon: <SyncAltIcon />,
+    text: 'Sincronizar propuestas',
+    onClick: () => {},
+  },
+  {
+    icon: <HistoryIcon />,
+    text: 'Revertir propuestas no sincronizadas',
+    onClick: () => {},
+  },
+  {
+    icon: <DownloadIcon />,
+    text: 'Descargar reportes',
+    onClick: () => {},
+  },
+]
 
 const SelectOptions = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -27,44 +45,15 @@ const SelectOptions = () => {
       </IconButton>
 
       {/* CONTENIDO MENU */}
-      <Menu
-        id='long-menu'
-        MenuListProps={{
-          'aria-labelledby': 'long-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        {/* sincroinzar propuestas */}
-        <MenuItem>
-          <ListItemIcon>
-            <SyncAltIcon />
-          </ListItemIcon>
-          <Typography variant='button' noWrap>
-            Sincronizar propuestas
-          </Typography>
-        </MenuItem>
-
-        {/* revertir ultimos cambios */}
-        <MenuItem>
-          <ListItemIcon>
-            <HistoryIcon />
-          </ListItemIcon>
-          <Typography variant='button' noWrap>
-            Revertir propuestas no sincronizadas
-          </Typography>
-        </MenuItem>
-
-        {/* descargar reportes */}
-        <MenuItem>
-          <ListItemIcon>
-            <DownloadIcon />
-          </ListItemIcon>
-          <Typography variant='button' noWrap>
-            Descargar reportes
-          </Typography>
-        </MenuItem>
+      <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+        {Elements.map((element, index) => (
+          <MenuItem key={index} onClick={element.onClick}>
+            <ListItemIcon>{element.icon}</ListItemIcon>
+            <Typography variant='button' noWrap>
+              {element.text}
+            </Typography>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   )

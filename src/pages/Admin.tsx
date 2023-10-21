@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react'
-import { Box, LinearProgress } from '@mui/material'
+import Box from '@mui/material/Box'
+import LinearProgress from '@mui/material/LinearProgress'
+
 const Aside = lazy(() => import('../components/main/Aside'))
 const DataTable = lazy(() => import('../components/main/TableExample'))
 
@@ -14,7 +16,7 @@ const Admin = () => {
       </Box>
 
       {/* CONTENEDOR DE TABLA */}
-      <Box pr={3} flexGrow={1}>
+      <Box flexGrow={1}>
         <Suspense fallback={<LinearProgress />}>
           <DataTable />
         </Suspense>

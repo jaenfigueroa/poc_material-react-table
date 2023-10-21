@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material'
+import Paper from '@mui/material/Paper'
 
 const SectionDetails = () => {
   return (

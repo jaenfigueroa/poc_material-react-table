@@ -1,4 +1,6 @@
-import { Button, Paper, TextField } from '@mui/material'
+import Button from '@mui/material/Button'
+import Paper from '@mui/material/Paper'
+import TextField from '@mui/material/TextField'
 import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -8,11 +10,7 @@ const SectionCuracion = () => {
   return (
     <Paper sx={{ p: 2 }}>
       <FormControl>
-        <RadioGroup
-          aria-labelledby='demo-radio-buttons-group-label'
-          defaultValue='female'
-          name='radio-buttons-group'
-        >
+        <RadioGroup name='isActive'>
           <FormControlLabel
             value='activar'
             control={<Radio />}

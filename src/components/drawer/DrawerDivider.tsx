@@ -1,16 +1,16 @@
-import * as React from 'react'
+import { ReactNode, Suspense, SyntheticEvent, lazy, useState } from 'react'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
-import { LinearProgress } from '@mui/material'
+import LinearProgress from '@mui/material/LinearProgress'
 
-const SectionDetails = React.lazy(() => import('./SectionDetails'))
-const SectionCuracion = React.lazy(() => import('./SectionCuracion'))
-const SectionHistory = React.lazy(() => import('./SectionHistory'))
+const SectionDetails = lazy(() => import('./SectionDetails'))
+const SectionCuracion = lazy(() => import('./SectionCuracion'))
+const SectionHistory = lazy(() => import('./SectionHistory'))
 
 interface TabPanelProps {
-  children?: React.ReactNode
+  children?: ReactNode
   index: number
   value: number
 }
@@ -39,9 +39,9 @@ const a11yProps = (index: number) => {
 }
 
 const DrawerDivider = () => {
-  const [value, setValue] = React.useState(1)
+  const [value, setValue] = useState(1)
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }
 
@@ -63,22 +63,22 @@ const DrawerDivider = () => {
       </AppBar>
 
       <CustomTabPanel value={value} index={0}>
-        <React.Suspense fallback={<LinearProgress />}>
+        <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
           <SectionDetails />
-        </React.Suspense>
+        </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <React.Suspense fallback={<LinearProgress />}>
+        <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
           <SectionCuracion />
-        </React.Suspense>
+        </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <React.Suspense fallback={<LinearProgress />}>
+        <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
           <SectionHistory />
-        </React.Suspense>
+        </Suspense>
       </CustomTabPanel>
     </Box>
   )

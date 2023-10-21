@@ -1,7 +1,8 @@
-import { Avatar, Button } from '@mui/material'
+import { useContext } from 'react'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
-import { useContext } from 'react'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
 

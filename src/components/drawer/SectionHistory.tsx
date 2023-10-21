@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Timeline from '@mui/lab/Timeline'
@@ -6,12 +7,10 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
-import TimelineOppositeContent, {
-  timelineOppositeContentClasses,
-} from '@mui/lab/TimelineOppositeContent'
+import LinearProgress from '@mui/material/LinearProgress'
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
+import timelineOppositeContentClasses from '@mui/lab/TimelineOppositeContent/timelineOppositeContentClasses'
 import { HISTORY } from '../../data/history'
-import { Suspense, lazy } from 'react'
-import { LinearProgress } from '@mui/material'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
@@ -21,13 +20,6 @@ const SectionHistory = () => {
       {/* LISTA DE USUARIOS */}
       <Suspense fallback={<LinearProgress />}>
         <AvatarGroup max={10}>
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
           <Avatar />
           <Avatar />
           <Avatar />
@@ -52,6 +44,7 @@ const SectionHistory = () => {
       >
         {HISTORY.map((item, index) => (
           <TimelineItem key={index}>
+            {/* IZQUIERDA */}
             <TimelineOppositeContent>
               <Suspense fallback={<LinearProgress />}>{item.time}</Suspense>
             </TimelineOppositeContent>
@@ -59,6 +52,7 @@ const SectionHistory = () => {
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
+            {/* DERECHA */}
             <TimelineContent>
               <Suspense fallback={<LinearProgress />}>
                 <CardHistory

@@ -1,8 +1,9 @@
+import { Suspense, lazy, useState } from 'react'
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
-import { Suspense, lazy, useState } from 'react'
-import { LinearProgress } from '@mui/material'
+import LinearProgress from '@mui/material/LinearProgress'
+
 const DrawerDivider = lazy(() => import('./DrawerDivider'))
 
 const DrawerMain = () => {

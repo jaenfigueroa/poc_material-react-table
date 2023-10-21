@@ -13,12 +13,12 @@ export const ToggleColorMode = ({ children }: PropsWithChildren) => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
       },
     }),
-    []
+    [],
   )
 
   const theme = useMemo(
     () => createTheme(mode === 'light' ? THEME_LIGHT : THEME_DARK),
-    [mode]
+    [mode],
   )
 
   return (

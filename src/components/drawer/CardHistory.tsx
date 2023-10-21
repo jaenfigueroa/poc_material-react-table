@@ -1,5 +1,8 @@
-import { useTheme } from '@emotion/react'
-import { Avatar, Chip, Paper, Typography } from '@mui/material'
+import Avatar from '@mui/material/Avatar'
+import Chip from '@mui/material/Chip'
+import Paper from '@mui/material/Paper'
+import Typography from '@mui/material/Typography'
+import useTheme from '@mui/material/styles/useTheme'
 
 interface Props {
   user: string
