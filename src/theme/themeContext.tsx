@@ -1,19 +1,23 @@
-import { PropsWithChildren, createContext, useMemo, useState } from 'react'
+import { PropsWithChildren, createContext, useMemo } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { CssBaseline } from '@mui/material'
 import { THEME_DARK, THEME_LIGHT } from './themes'
+import useLocalStorage from '../hook/useLocalStorage'
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
 export const ToggleColorMode = ({ children }: PropsWithChildren) => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light')
+  // Utilizamos el hook useLocalStorage para almacenar y recuperar la preferencia del tema
+  const [mode, setMode] = useLocalStorage<'light' | 'dark'>('theme', 'light')
+
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
+        // Cambiamos el tema y almacenamos la preferencia en localStorage
+        setMode(mode === 'light' ? 'dark' : 'light')
       },
     }),
-    [],
+    [mode, setMode],
   )
 
   const theme = useMemo(
