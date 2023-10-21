@@ -1,7 +1,7 @@
 type History = {
   id: number
   user: string
-  sustento: string
+  reason: string
   time: string
   action: string
 }
@@ -10,7 +10,7 @@ export const HISTORY: History[] = [
   {
     id: 1,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -18,7 +18,7 @@ export const HISTORY: History[] = [
   {
     id: 2,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',
@@ -26,7 +26,7 @@ export const HISTORY: History[] = [
   {
     id: 3,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -34,7 +34,7 @@ export const HISTORY: History[] = [
   {
     id: 4,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',
@@ -42,7 +42,7 @@ export const HISTORY: History[] = [
   {
     id: 5,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -50,7 +50,7 @@ export const HISTORY: History[] = [
   {
     id: 6,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',
@@ -58,7 +58,7 @@ export const HISTORY: History[] = [
   {
     id: 7,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -66,7 +66,7 @@ export const HISTORY: History[] = [
   {
     id: 8,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',
@@ -74,7 +74,7 @@ export const HISTORY: History[] = [
   {
     id: 9,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -82,7 +82,7 @@ export const HISTORY: History[] = [
   {
     id: 10,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',
@@ -90,7 +90,7 @@ export const HISTORY: History[] = [
   {
     id: 11,
     user: 'Jose Ramirez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Activar regla',
@@ -98,7 +98,7 @@ export const HISTORY: History[] = [
   {
     id: 12,
     user: 'Rosa Mendez',
-    sustento:
+    reason:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod',
     time: '12:25 PM 12/Dic/2023',
     action: 'Desactivar regla',

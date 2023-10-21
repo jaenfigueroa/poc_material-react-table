@@ -1,5 +1,7 @@
 import Box from '@mui/material/Box'
 import Img404 from '../../public/404.svg'
+import { Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const NotFound = () => {
   return (
@@ -17,6 +19,9 @@ const NotFound = () => {
         style={{ maxWidth: '500px' }}
         loading='lazy'
       />
+      <Link to='/login'>
+        <Button variant='contained'>Volver al Inicio</Button>
+      </Link>
     </Box>
   )
 }

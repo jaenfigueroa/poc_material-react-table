@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 const Login = lazy(() => import('../pages/Login'))
 const Admin = lazy(() => import('../pages/Admin'))
 const NotFound = lazy(() => import('../pages/NotFound'))
-const Header = lazy(() => import('../components/Header'))
+const Header = lazy(() => import('../components/header'))
 
 export const AppRoutes = () => {
   return (

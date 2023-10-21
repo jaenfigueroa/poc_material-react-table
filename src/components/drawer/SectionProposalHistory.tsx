@@ -14,7 +14,7 @@ import { HISTORY } from '../../data/history'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
-const SectionHistory = () => {
+const SectionProposalHistory = () => {
   return (
     <>
       {/* LISTA DE USUARIOS */}
@@ -58,7 +58,7 @@ const SectionHistory = () => {
                 <CardHistory
                   user={item.user}
                   action={item.action}
-                  sustento={item.sustento}
+                  reason={item.reason}
                   time={item.time}
                 />
               </Suspense>
@@ -70,4 +70,4 @@ const SectionHistory = () => {
   )
 }
 
-export default SectionHistory
+export default SectionProposalHistory

@@ -5,9 +5,9 @@ import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
 import LinearProgress from '@mui/material/LinearProgress'
 
-const SectionDetails = lazy(() => import('./SectionDetails'))
-const SectionCuracion = lazy(() => import('./SectionCuracion'))
-const SectionHistory = lazy(() => import('./SectionHistory'))
+const SectionRuleDetails = lazy(() => import('./SectionRuleDetails'))
+const SectionAddProposal = lazy(() => import('./SectionAddProposal'))
+const SectionProposalHistory = lazy(() => import('./SectionProposalHistory'))
 
 interface TabPanelProps {
   children?: ReactNode
@@ -65,19 +65,19 @@ const DrawerDivider = () => {
       <CustomTabPanel value={value} index={0}>
         <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
-          <SectionDetails />
+          <SectionRuleDetails />
         </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
-          <SectionCuracion />
+          <SectionAddProposal />
         </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <Suspense fallback={<LinearProgress />}>
           {/* CONTENIDO */}
-          <SectionHistory />
+          <SectionProposalHistory />
         </Suspense>
       </CustomTabPanel>
     </Box>

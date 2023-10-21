@@ -3,13 +3,13 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import ToogleTheme from '../theme/toogleTheme'
-import Avatar from '@mui/material/Avatar'
+import ToogleTheme from '../../theme/toogleTheme'
 import useTheme from '@mui/material/styles/useTheme'
 import LinearProgress from '@mui/material/LinearProgress'
-import { AppContext } from '../context/AppContext'
+import { AppContext } from '../../context/AppContext'
 
-const SelectOptions = lazy(() => import('./drawer/SelectOptions'))
+const SelectProposalOptions = lazy(() => import('./SelectProposalOptions'))
+const SelectProfileOptions = lazy(() => import('./SelectProfileOptions'))
 
 export default function ButtonAppBar() {
   const theme = useTheme()
@@ -37,14 +37,12 @@ export default function ButtonAppBar() {
           {/* ALTERNAR TEMA */}
           <ToogleTheme />
 
-          {/* SELECTOR DE OPCIONES Y LA FOTO DE PERFIL */}
+          {/* SELECTORES DE OPCIONES DE PROPOSICIONES Y PERFIL */}
           {isLogged && (
-            <>
-              <Suspense fallback={<LinearProgress />}>
-                <SelectOptions />
-                <Avatar style={{ marginLeft: 15 }} />
-              </Suspense>
-            </>
+            <Suspense fallback={<LinearProgress />}>
+              <SelectProposalOptions />
+              <SelectProfileOptions />
+            </Suspense>
           )}
         </Toolbar>
       </AppBar>

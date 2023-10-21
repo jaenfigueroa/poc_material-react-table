@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper'
 
-const SectionDetails = () => {
+const SectionRuleDetails = () => {
   return (
     <Paper sx={{ p: 2 }}>
       1 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla sed
@@ -19,4 +19,4 @@ const SectionDetails = () => {
   )
 }
 
-export default SectionDetails
+export default SectionRuleDetails

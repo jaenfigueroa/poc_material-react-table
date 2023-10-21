@@ -2,8 +2,8 @@ import { Suspense, lazy } from 'react'
 import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
 
-const Aside = lazy(() => import('../components/main/Aside'))
-const DataTable = lazy(() => import('../components/main/TableExample'))
+const Aside = lazy(() => import('../components/dashboard/Aside'))
+const DataTable = lazy(() => import('../components/dashboard/TableExample'))
 
 const Admin = () => {
   return (

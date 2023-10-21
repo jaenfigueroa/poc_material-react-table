@@ -7,7 +7,7 @@ import useTheme from '@mui/material/styles/useTheme'
 interface Props {
   user: string
   action: string
-  sustento: string
+  reason: string
   time: string
 }
 
@@ -27,7 +27,7 @@ const CardHistory = (props: Props) => {
         color={props.action === 'Activar regla' ? 'success' : 'error'}
         style={{ margin: '10px 0' }}
       />
-      <Typography>{props.sustento}</Typography>
+      <Typography>{props.reason}</Typography>
     </Paper>
   )
 }

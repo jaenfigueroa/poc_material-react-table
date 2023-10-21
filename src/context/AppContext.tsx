@@ -1,4 +1,10 @@
-import { createContext, useState, Dispatch, SetStateAction, useMemo } from 'react'
+import {
+  createContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useMemo,
+} from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -19,8 +25,10 @@ export const AppProvider = ({ children }: Props) => {
       isLogged,
       setIsLogged,
     }),
-    [isLogged, setIsLogged]
+    [isLogged, setIsLogged],
   )
 
-  return <AppContext.Provider value={sharedData}>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider value={sharedData}>{children}</AppContext.Provider>
+  )
 }
