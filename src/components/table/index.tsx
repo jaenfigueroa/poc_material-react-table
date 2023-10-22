@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
-import { MaterialReactTable } from 'material-react-table';
-import { MRT_ColumnDef } from 'material-react-table';
-import { Rule } from './IRule'; // Importa la interfaz Rule desde el archivo Rule.ts
-import { data } from './dataRule'; // Importa la data desde el archivo data.ts
-
+import { MaterialReactTable , MRT_ColumnDef} from 'material-react-table';
+import { Rule } from './IRule'; 
+import { data } from './dataRule';
 export default function Table() {
     const columns = useMemo<MRT_ColumnDef<Rule>[]>(
         () => [
