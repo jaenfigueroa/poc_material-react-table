@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { MRT_ColumnDef} from 'material-react-table';
-import { Rule } from './IRule'; 
+import { MRT_ColumnDef } from 'material-react-table';
+import { Rule } from './IRule';
 
-export  const columns = useMemo<MRT_ColumnDef<Rule>[]>(
-    () => [
+const generateColumns = (): MRT_ColumnDef<Rule>[] => {
+    return [
         {
             accessorKey: 'codigo',
             header: 'Codigo',
@@ -28,6 +28,7 @@ export  const columns = useMemo<MRT_ColumnDef<Rule>[]>(
             accessorKey: 'fecha',
             header: 'Fecha',
         },
-    ],
-    [],
-);
+    ];
+};
+
+export const columns = useMemo(() => generateColumns(), []);

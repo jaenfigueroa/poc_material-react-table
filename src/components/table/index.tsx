@@ -1,6 +1,6 @@
 import { MaterialReactTable } from 'material-react-table'
 import { data } from './dataRule';
-import {columns} from './columnsTable'
+import { columns } from './columnsTable'
 
 export default function Table() {
 
