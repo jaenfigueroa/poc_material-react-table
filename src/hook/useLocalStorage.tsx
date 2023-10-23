@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 
-type LocalStorageKey = string
-
 function useLocalStorage<T>(
-  key: LocalStorageKey,
+  key: string,
   initialValue: T,
 ): [T, (value: T) => void] {
   // Obtener el valor almacenado en el localStorage o usar el valor inicial

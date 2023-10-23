@@ -33,8 +33,8 @@ const SelectOptions = ({ icon, items }: Props) => {
 
       {/* CONTENIDO MENU */}
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-        {items.map((element, index) => (
-          <MenuItem key={index} onClick={element.onClick}>
+        {items.map((element) => (
+          <MenuItem onClick={element.onClick} key={crypto.randomUUID()}>
             <ListItemIcon>{element.icon}</ListItemIcon>
             <Typography variant='button' noWrap>
               {element.text}

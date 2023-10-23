@@ -42,8 +42,8 @@ const SectionProposalHistory = () => {
           },
         }}
       >
-        {HISTORY.map((item, index) => (
-          <TimelineItem key={index}>
+        {HISTORY.map((item) => (
+          <TimelineItem key={crypto.randomUUID()}>
             {/* IZQUIERDA */}
             <TimelineOppositeContent>
               <Suspense fallback={<LinearProgress />}>{item.time}</Suspense>
