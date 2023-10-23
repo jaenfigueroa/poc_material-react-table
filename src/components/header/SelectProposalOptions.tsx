@@ -30,7 +30,7 @@ const SelectProposalOptions = () => {
     <SelectOptions
       icon={
         <Badge badgeContent={4} color='primary'>
-          <StorageIcon fontSize='large' sx={{ color: 'white' }} />
+          <StorageIcon fontSize='medium' sx={{ color: 'white' }} />
         </Badge>
       }
       items={ITEMS}

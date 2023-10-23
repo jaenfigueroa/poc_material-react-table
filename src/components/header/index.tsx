@@ -26,7 +26,7 @@ export default function ButtonAppBar() {
         <Toolbar>
           {/* LOGO */}
           <Typography
-            variant='h4'
+            variant='h5'
             component='h1'
             sx={{ flexGrow: 1 }}
             fontWeight={'bold'}

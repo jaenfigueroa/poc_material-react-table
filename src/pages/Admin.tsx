@@ -1,27 +1,26 @@
 import { Suspense, lazy } from 'react'
-import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
+import Grid from '@mui/material/Grid'
 
 const Aside = lazy(() => import('../components/dashboard/Aside'))
-const DataTable = lazy(() => import('../components/dashboard/TableExample'))
+const Table = lazy(() => import('../components/dashboard/Table'))
 
 const Admin = () => {
   return (
-    <Box display={'flex'} gap={3} p={3}>
-      {/* CONTENEDOR DE FILTROS */}
-      <Box minWidth={230} width={230}>
+    <Grid container p={3} pt={4} spacing={3}>
+      <Grid item xs={4} sm={3} lg={2} xl={1.5}>
         <Suspense fallback={<LinearProgress />}>
+          {/* CONTENEDOR DE FILTROS */}
           <Aside />
         </Suspense>
-      </Box>
-
-      {/* CONTENEDOR DE TABLA */}
-      <Box flexGrow={1}>
+      </Grid>
+      <Grid item xs={8} sm={9} lg={10} xl={10.5}>
         <Suspense fallback={<LinearProgress />}>
-          <DataTable />
+          {/* CONTENEDOR DE TABLA */}
+          <Table />
         </Suspense>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   )
 }
 

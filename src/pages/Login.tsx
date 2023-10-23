@@ -34,7 +34,7 @@ const Login = () => {
       alignItems={'center'}
       height={'calc(100vh - 64px)'}
     >
-      <Avatar style={{ width: 150, height: 150, marginBottom: '15px' }} />
+      <Avatar style={{ width: 130, height: 130, marginBottom: '15px' }} />
 
       <Box component={'form'} onSubmit={handleSubmit}>
         <TextField
@@ -47,6 +47,7 @@ const Login = () => {
           margin='normal'
           fullWidth
           autoComplete='email'
+          size='medium'
         />
         <TextField
           id='password'
@@ -57,13 +58,14 @@ const Login = () => {
           onChange={handleChange}
           fullWidth
           autoComplete='current-password'
+          size='medium'
         />
 
         <Button
           type='submit'
           variant='contained'
           color='primary'
-          style={{ padding: 15, width: '100%', marginTop: 15 }}
+          style={{ padding: 10, width: '100%', marginTop: 10 }}
         >
           Enviar
         </Button>

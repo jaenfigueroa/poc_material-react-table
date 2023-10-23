@@ -6,6 +6,7 @@ import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormControl from '@mui/material/FormControl'
 import useForm from '../../hook/useForm'
+import SaveIcon from '@mui/icons-material/Save'
 
 const initialValues = {
   optionActive: '',
@@ -49,13 +50,13 @@ const SectionAddProposal = () => {
           fullWidth
           variant='outlined'
           label='Sustento'
-          placeholder='Escribe aquí tu sustento bien detallado de porque solicitas activar/desactivar esta regla.'
           name='reason'
           value={values.reason}
           onChange={handleChange}
+          size='small'
         />
 
-        <Button type='submit' variant='contained' sx={{ p: 1.5, mt: 2 }}>
+        <Button type='submit' variant='contained' startIcon={<SaveIcon />}>
           Guardar propuesta localmente
         </Button>
       </FormControl>

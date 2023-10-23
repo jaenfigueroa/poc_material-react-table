@@ -11,7 +11,7 @@ const ProfileSelectOptions = () => {
 
   return (
     <SelectOptions
-      icon={<Avatar />}
+      icon={<Avatar sx={{ width: 30, height: 30 }} />}
       items={[
         {
           icon: <LogoutIcon />,
