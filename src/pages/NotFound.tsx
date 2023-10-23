@@ -7,16 +7,18 @@ const NotFound = () => {
   return (
     <Box
       display={'flex'}
+      flexDirection={'column'}
       justifyContent={'center'}
       alignItems={'center'}
       flexGrow={1}
       height={'90vh'}
+      gap={4}
     >
       <img
         src={Img404}
         alt='Marinero con el numero 404 detras'
         width={'90%'}
-        style={{ maxWidth: '500px' }}
+        style={{ maxWidth: '350px' }}
         loading='lazy'
       />
       <Link to='/login'>

@@ -16,7 +16,7 @@ const DrawerMain = () => {
 
   return (
     <>
-      <Button onClick={toggleDrawer(true)} sx={{ mt: 32 }}>
+      <Button onClick={toggleDrawer(true)} sx={{ mt: 2 }}>
         Abrir drawer
       </Button>
       <Drawer

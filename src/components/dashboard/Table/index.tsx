@@ -1,39 +1,54 @@
 import { useState, useEffect } from 'react'
 import { MaterialReactTable } from 'material-react-table'
 import { MRT_ColumnDef } from 'material-react-table'
-import { User } from './types'
+import { Rule } from './types'
 import SelectTableOptions from './SelectTableOptions'
 
 // Definir las columnas
-const columns: MRT_ColumnDef<User>[] = [
+const columns: MRT_ColumnDef<Rule>[] = [
   {
-    header: 'Nombre y Apellido',
-    accessorKey: 'name',
+    header: 'Codigo',
+    accessorKey: 'code',
+    size: 50,
   },
   {
-    header: 'Usuario',
-    accessorKey: 'username',
+    header: 'Regla',
+    accessorKey: 'description',
+    size: 400,
   },
   {
-    header: 'Correo',
-    accessorKey: 'email',
+    header: 'Tipo',
+    accessorKey: 'type',
+    size: 50,
   },
   {
-    header: 'Telefono',
-    accessorKey: 'phone',
+    header: 'Severidad',
+    accessorKey: 'severity',
+    size: 50,
+  },
+  {
+    header: 'Est. Actual',
+    accessorKey: 'state',
+    size: 50,
+  },
+  {
+    header: 'Fecha',
+    accessorKey: 'date',
+    size: 50,
   },
 ]
 
 const Table = () => {
-  const [data, setData] = useState<User[]>([])
+  const [data, setData] = useState<Rule[]>([])
 
-  // Traer el array de usuarios desde la API
+  // traer el array de reglas desde la API
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users/')
+    fetch('/data.json')
       .then((response) => response.json())
       .then((data) => {
-        // Asumiendo que los datos tienen una estructura similar a la interfaz User
-        setData(data as User[])
+        // Asumiendo que los datos tienen una estructura similar a la interfaz Rule
+        setData(data.rules as Rule[])
+        console.log(data.rules)
       })
       .catch((error) => {
         console.error('Error al obtener los datos', error)

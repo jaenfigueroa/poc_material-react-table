@@ -2,7 +2,7 @@ import SelectOptions from '../../../ui/SelectOptions'
 import HistoryIcon from '@mui/icons-material/History'
 import AddIcon from '@mui/icons-material/Add'
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
 const ITEMS = [
   {
@@ -25,7 +25,7 @@ const ITEMS = [
 const SelectTableOptions = () => {
   return (
     <SelectOptions
-      icon={<MoreVertIcon fontSize='medium' sx={{ color: 'gray' }} />}
+      icon={<MoreHorizIcon fontSize='medium' sx={{ color: 'gray' }} />}
       items={ITEMS}
     />
   )
