@@ -111,8 +111,9 @@ self.addEventListener('fetch', function (event) {
     return
   }
 
+  const crypto = window.crypto || window.msCrypto
   // Generate unique request ID.
-  const requestId = Math.random().toString(16).slice(2)
+  const requestId = crypto.getRandomValues(new Uint8Array(16)).join()
 
   event.respondWith(
     handleRequest(event, requestId).catch((error) => {
