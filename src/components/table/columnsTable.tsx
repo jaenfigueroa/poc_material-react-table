@@ -1,9 +1,9 @@
-export const columns: any[] = [
+export const columns = [
     {
         accessorKey: 'codigo',
         header: 'Codigo',
     },
-    {
+    { 
         accessorKey: 'regla',
         header: 'Regla',
     },
