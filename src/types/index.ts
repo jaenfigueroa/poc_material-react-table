@@ -7,3 +7,11 @@ export type Rule = {
   state: string
   date: string
 }
+
+export type History = {
+  id: number
+  user: string
+  reason: string
+  time: string
+  action: string
+}

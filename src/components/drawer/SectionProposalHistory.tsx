@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Timeline from '@mui/lab/Timeline'
@@ -10,11 +10,26 @@ import TimelineDot from '@mui/lab/TimelineDot'
 import LinearProgress from '@mui/material/LinearProgress'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import timelineOppositeContentClasses from '@mui/lab/TimelineOppositeContent/timelineOppositeContentClasses'
-import { HISTORY } from '../../data/history'
+import { History } from '../../types'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
 const SectionProposalHistory = () => {
+  const [data, setData] = useState<History[]>([])
+
+  // traer el array de reglas desde la API
+  useEffect(() => {
+    fetch('/history.json')
+      .then((response) => response.json())
+      .then((data) => {
+        // Asumiendo que los datos tienen una estructura similar a la interfaz History
+        setData(data.history as History[])
+      })
+      .catch((error) => {
+        console.error('Error al obtener los datos', error)
+      })
+  }, [])
+
   return (
     <>
       {/* LISTA DE USUARIOS */}
@@ -42,7 +57,7 @@ const SectionProposalHistory = () => {
           },
         }}
       >
-        {HISTORY.map((item) => (
+        {data.map((item) => (
           <TimelineItem key={crypto.randomUUID()}>
             {/* IZQUIERDA */}
             <TimelineOppositeContent>

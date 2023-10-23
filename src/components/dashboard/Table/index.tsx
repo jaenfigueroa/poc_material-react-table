@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { MaterialReactTable } from 'material-react-table'
 import { MRT_ColumnDef } from 'material-react-table'
-import { Rule } from './types'
 import SelectTableOptions from './SelectTableOptions'
+import { Rule } from '../../../types'
 
 // Definir las columnas
 const columns: MRT_ColumnDef<Rule>[] = [
@@ -43,7 +43,7 @@ const Table = () => {
 
   // traer el array de reglas desde la API
   useEffect(() => {
-    fetch('/data.json')
+    fetch('/rules.json')
       .then((response) => response.json())
       .then((data) => {
         // Asumiendo que los datos tienen una estructura similar a la interfaz Rule
