@@ -26,6 +26,7 @@ const DrawerMain = () => {
         <Box sx={{ width: '600px' }}>
           {/* CONTENDIDO */}
           <Suspense fallback={<LinearProgress />}>
+            {/* <DrawerDivider /> */}
             <DrawerDivider />
           </Suspense>
         </Box>
