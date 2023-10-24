@@ -7,10 +7,12 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
-import LinearProgress from '@mui/material/LinearProgress'
+import Skeleton from '@mui/material/Skeleton'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import timelineOppositeContentClasses from '@mui/lab/TimelineOppositeContent/timelineOppositeContentClasses'
 import { History } from '../../types'
+import { CardHistorySkeleton } from '../../ui/skeletons/CardSkeleton'
+import { Stack } from '@mui/material'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
@@ -31,23 +33,28 @@ const SectionProposalHistory = () => {
   }, [])
 
   return (
-    <>
+    <Suspense
+      fallback={
+        <Stack spacing={2}>
+          <Skeleton animation='wave' height={100} />
+          <Skeleton animation='wave' height={500} />
+        </Stack>
+      }
+    >
       {/* LISTA DE USUARIOS */}
-      <Suspense fallback={<LinearProgress />}>
-        <AvatarGroup max={10}>
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-        </AvatarGroup>
-      </Suspense>
+      <AvatarGroup max={10}>
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+        <Avatar />
+      </AvatarGroup>
 
       {/* LINEA DE TIEMPO */}
       <Timeline
@@ -60,16 +67,14 @@ const SectionProposalHistory = () => {
         {data.map((item) => (
           <TimelineItem key={crypto.randomUUID()}>
             {/* IZQUIERDA */}
-            <TimelineOppositeContent>
-              <Suspense fallback={<LinearProgress />}>{item.time}</Suspense>
-            </TimelineOppositeContent>
+            <TimelineOppositeContent>{item.time}</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
             {/* DERECHA */}
             <TimelineContent>
-              <Suspense fallback={<LinearProgress />}>
+              <Suspense fallback={<CardHistorySkeleton />}>
                 <CardHistory
                   user={item.user}
                   action={item.action}
@@ -81,7 +86,7 @@ const SectionProposalHistory = () => {
           </TimelineItem>
         ))}
       </Timeline>
-    </>
+    </Suspense>
   )
 }
 

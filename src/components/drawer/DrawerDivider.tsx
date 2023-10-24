@@ -3,7 +3,9 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
-import LinearProgress from '@mui/material/LinearProgress'
+import Skeleton from '@mui/material/Skeleton'
+import { SectionDetailsSkeleton } from '../../ui/skeletons/SectionDetailsSkeleton'
+import { SectionHistorySkeleton } from '../../ui/skeletons/SectionHistorySkeleton'
 
 const SectionRuleDetails = lazy(() => import('./SectionRuleDetails'))
 const SectionAddProposal = lazy(() => import('./SectionAddProposal'))
@@ -63,19 +65,23 @@ const DrawerDivider = () => {
       </AppBar>
 
       <CustomTabPanel value={value} index={0}>
-        <Suspense fallback={<LinearProgress />}>
+        <Suspense fallback={<SectionDetailsSkeleton />}>
           {/* CONTENIDO */}
           <SectionRuleDetails />
         </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Suspense fallback={<LinearProgress />}>
+        <Suspense
+          fallback={
+            <Skeleton animation='wave' variant='rounded' height={200} />
+          }
+        >
           {/* CONTENIDO */}
           <SectionAddProposal />
         </Suspense>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Suspense fallback={<LinearProgress />}>
+        <Suspense fallback={<SectionHistorySkeleton />}>
           {/* CONTENIDO */}
           <SectionProposalHistory />
         </Suspense>
