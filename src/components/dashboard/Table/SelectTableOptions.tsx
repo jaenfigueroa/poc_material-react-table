@@ -24,10 +24,7 @@ const ITEMS = [
 
 const SelectTableOptions = () => {
   return (
-    <SelectOptions
-      icon={<MoreHorizIcon fontSize='medium' sx={{ color: 'gray' }} />}
-      items={ITEMS}
-    />
+    <SelectOptions icon={<MoreHorizIcon fontSize='small' />} items={ITEMS} />
   )
 }
 

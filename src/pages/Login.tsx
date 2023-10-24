@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
+import { Stack } from '@mui/material'
 
 const initialValues = {
   email: '',
@@ -37,8 +38,13 @@ const Login = () => {
           alignItems={'center'}
           height={'calc(100vh - 64px)'}
         >
-          <Avatar style={{ width: 130, height: 130, marginBottom: '15px' }} />
-          <Box component={'form'} onSubmit={handleSubmit}>
+          <Stack
+            component={'form'}
+            spacing={2}
+            alignItems={'center'}
+            onSubmit={handleSubmit}
+          >
+            <Avatar style={{ width: 130, height: 130, marginBottom: '10px' }} />
             <TextField
               id='email'
               label='Correo electrónico'
@@ -49,7 +55,7 @@ const Login = () => {
               margin='normal'
               fullWidth
               autoComplete='email'
-              size='medium'
+              size='small'
             />
             <TextField
               id='password'
@@ -60,18 +66,18 @@ const Login = () => {
               onChange={handleChange}
               fullWidth
               autoComplete='current-password'
-              size='medium'
+              size='small'
             />
 
             <Button
               type='submit'
               variant='contained'
               color='primary'
-              style={{ padding: 10, width: '100%', marginTop: 10 }}
+              style={{ width: '100%', marginTop: 20 }}
             >
-              Enviar
+              Iniciar Sesión
             </Button>
-          </Box>
+          </Stack>
         </Box>
       </Grid>
     </Grid>

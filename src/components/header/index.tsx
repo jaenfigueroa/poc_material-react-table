@@ -1,7 +1,5 @@
 import { Suspense, lazy, useContext } from 'react'
-import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import ToogleTheme from '../../theme/toogleTheme'
 import LinearProgress from '@mui/material/LinearProgress'
@@ -16,36 +14,41 @@ export default function ButtonAppBar() {
   const { isLogged } = useContext(AppContext)
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position='static'
-        style={{
-          background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-        }}
-      >
-        <Toolbar>
-          {/* LOGO */}
-          <Typography
-            variant='h5'
-            component='h1'
-            sx={{ flexGrow: 1 }}
-            fontWeight={'bold'}
-          >
-            Pacifico
-          </Typography>
+    <Box
+      sx={{ flexGrow: 1 }}
+      display={'flex'}
+      justifyContent={'space-between'}
+      alignItems={'center'}
+      p={0.5}
+      pl={1}
+      style={{
+        background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+      }}
+    >
+      <Box>
+        {/* LOGO */}
+        <Typography
+          variant='h5'
+          component='h1'
+          sx={{ flexGrow: 1 }}
+          fontWeight={'bold'}
+          color={'white'}
+        >
+          Pacifico
+        </Typography>
+      </Box>
+      <Box>
+        {/* ALTERNAR TEMA */}
+        <ToogleTheme />
 
-          {/* ALTERNAR TEMA */}
-          <ToogleTheme />
-
-          {/* SELECTORES DE OPCIONES DE PROPOSICIONES Y PERFIL */}
-          {isLogged && (
-            <Suspense fallback={<LinearProgress />}>
-              <SelectProposalOptions />
-              <SelectProfileOptions />
-            </Suspense>
-          )}
-        </Toolbar>
-      </AppBar>
+        {/* SELECTORES DE OPCIONES DE PROPOSICIONES Y PERFIL */}
+        {isLogged && (
+          <Suspense fallback={<LinearProgress />}>
+            <SelectProposalOptions />
+            <SelectProfileOptions />
+          </Suspense>
+        )}
+      </Box>
     </Box>
   )
 }
