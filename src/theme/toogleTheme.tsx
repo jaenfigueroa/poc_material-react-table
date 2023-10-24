@@ -1,11 +1,11 @@
-import { useContext } from 'react'
+import { memo, useContext } from 'react'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import IconButton from '@mui/material/IconButton'
 import { useTheme } from '@mui/material/styles'
 import { ColorModeContext } from './themeContext'
 
-const ToogleTheme = () => {
+const ToogleTheme = memo(() => {
   const theme = useTheme()
   const colorMode = useContext(ColorModeContext)
 
@@ -18,6 +18,6 @@ const ToogleTheme = () => {
       )}
     </IconButton>
   )
-}
+})
 
 export default ToogleTheme

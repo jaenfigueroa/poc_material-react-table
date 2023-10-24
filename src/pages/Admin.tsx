@@ -1,24 +1,34 @@
 import { Suspense, lazy } from 'react'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
+import { DrawerProvider } from '../components/drawer/DrawerContext'
+import { LinearProgress } from '@mui/material'
 
-const Table = lazy(() => import('../components/dashboard/Table'))
+const Table = lazy(() => import('../components/Table'))
+const DrawerMain = lazy(() => import('../components/drawer'))
 
 const Admin = () => {
   return (
-    <Suspense
-      fallback={
-        <Box
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
-          height={'90vh'}
+    <Suspense fallback={<LinearProgress />}>
+      <DrawerProvider>
+        {/* TABLA */}
+        <Suspense
+          fallback={
+            <Box
+              display={'flex'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              height={'90vh'}
+            >
+              <CircularProgress />{' '}
+            </Box>
+          }
         >
-          <CircularProgress />{' '}
-        </Box>
-      }
-    >
-      <Table />
+          <Table />
+        </Suspense>
+        {/* DRAWER DERECHA */}
+        <DrawerMain />
+      </DrawerProvider>
     </Suspense>
   )
 }

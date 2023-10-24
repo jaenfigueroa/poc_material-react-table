@@ -1,9 +1,11 @@
+import { Suspense, lazy, memo } from 'react'
+import Skeleton from '@mui/material/Skeleton'
 import { MaterialReactTable } from 'material-react-table'
-import SelectTableOptions from './SelectTableOptions'
-import { Rule } from '../../../types'
+import { Rule } from '../../types'
 import { columns } from './columns'
-import { memo } from 'react'
 import { useQuery, UseQueryResult } from 'react-query'
+
+const SelectTableOptions = lazy(() => import('./SelectTableOptions'))
 
 const fetchData = async () => {
   const response = await fetch(
@@ -28,16 +30,20 @@ const Table = memo(() => {
       positionActionsColumn='last' // posicionar la columna de acciones al final
       renderRowActions={() => {
         //VALOR ORIGINAL DE LA FILA --> console.log(cell.row.original
-        return <SelectTableOptions />
+        return (
+          <Suspense fallback={<Skeleton variant='text' />}>
+            <SelectTableOptions />
+          </Suspense>
+        )
       }}
       enableStickyHeader
       enableStickyFooter
-      // muiTableContainerProps={{ sx: { minHeight: 'calc(100vh - 200px)' } }}
+      muiTableContainerProps={{ sx: { minHeight: 'calc(100vh - 200px)' } }}
       initialState={{
         // numero de elementos por pagina y pagina por defecto
         pagination: { pageSize: 20, pageIndex: 0 },
         // buscador visible por defecto
-        // showGlobalFilter: true,
+        showGlobalFilter: true,
         // densidad de filas por defecto
         density: 'comfortable',
         // columnas fijas por defecto - fijar la columna de acciones
@@ -52,7 +58,10 @@ const Table = memo(() => {
         sx: { minWidth: '300px' },
         variant: 'outlined',
         size: 'small',
-        style: { paddingTop: '5px', paddingLeft: '8px' },
+        style: {
+          paddingTop: '5px',
+          paddingLeft: '8px',
+        },
       }}
       // desactivar el cambio de densidad de las filas
       enableDensityToggle={false}

@@ -1,13 +1,12 @@
 import { Suspense, lazy, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import ToogleTheme from '../../theme/toogleTheme'
-import LinearProgress from '@mui/material/LinearProgress'
 import { useTheme } from '@mui/material'
 import { AppContext } from '../../context/AppContext'
 
 const SelectProposalOptions = lazy(() => import('./SelectProposalOptions'))
 const SelectProfileOptions = lazy(() => import('./SelectProfileOptions'))
+const ToogleTheme = lazy(() => import('../../theme/toogleTheme'))
 
 export default function ButtonAppBar() {
   const theme = useTheme()
@@ -39,11 +38,13 @@ export default function ButtonAppBar() {
       </Box>
       <Box>
         {/* ALTERNAR TEMA */}
-        <ToogleTheme />
+        <Suspense>
+          <ToogleTheme />
+        </Suspense>
 
         {/* SELECTORES DE OPCIONES DE PROPOSICIONES Y PERFIL */}
         {isLogged && (
-          <Suspense fallback={<LinearProgress />}>
+          <Suspense>
             <SelectProposalOptions />
             <SelectProfileOptions />
           </Suspense>

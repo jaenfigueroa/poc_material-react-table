@@ -1,11 +1,11 @@
 import { MRT_ColumnDef } from 'material-react-table'
-import { Rule } from '../../../types'
+import { Rule } from '../../types'
 
 export const columns: MRT_ColumnDef<Rule>[] = [
   {
     header: 'CÓDIGO',
     accessorKey: 'code',
-    size: 50,
+    size: 10,
     filterVariant: 'select', // indicar el tipo de selector de los filtros
     filterSelectOptions: [
       { text: 'HTML', value: 'html' },
@@ -24,7 +24,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
   {
     header: 'TIPO',
     accessorKey: 'type',
-    size: 50,
+    size: 10,
     filterVariant: 'select',
     filterSelectOptions: ['SECURITY_HOSTPOT', 'CODE_SMEEL'],
     enableColumnFilterModes: false,
@@ -32,7 +32,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
   {
     header: 'SEVERIDAD',
     accessorKey: 'severity',
-    size: 50,
+    size: 10,
     filterVariant: 'select',
     filterSelectOptions: ['MINOR', 'MAYOR'],
     enableColumnFilterModes: false,
@@ -40,7 +40,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
   {
     header: 'ESTADO',
     accessorKey: 'state',
-    size: 50,
+    size: 10,
     filterVariant: 'select',
     filterSelectOptions: ['ACTIVE', 'DESACTIVE'],
     enableColumnFilterModes: false,
@@ -48,7 +48,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
   {
     header: 'FECHA',
     accessorKey: 'date',
-    size: 50,
+    size: 10,
     enableColumnFilterModes: false,
   },
 ]

@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy } from 'react'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Timeline from '@mui/lab/Timeline'
@@ -8,55 +8,39 @@ import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
 import Skeleton from '@mui/material/Skeleton'
-import Stack from '@mui/material/Stack'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 import { timelineOppositeContentClasses } from '@mui/lab/TimelineOppositeContent/'
-import { History } from '../../types'
-import { CardHistorySkeleton } from '../../ui/skeletons/CardSkeleton'
+import { Proposal } from '../types'
+import { CardHistorySkeleton } from '../ui/skeletons/CardSkeleton'
+import { useQuery, UseQueryResult } from 'react-query'
 
-const CardHistory = lazy(() => import('./CardHistory'))
+const CardHistory = lazy(() => import('../ui/CardHistory'))
+
+const fetchData = async () => {
+  const response = await fetch(
+    'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/history.json',
+  )
+  const data = await response.json()
+  return data.history
+}
 
 const SectionProposalHistory = () => {
-  const [data, setData] = useState<History[]>([])
-
-  // traer el array de reglas desde la API
-  useEffect(() => {
-    fetch(
-      'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/history.json',
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // Asumiendo que los datos tienen una estructura similar a la interfaz History
-        setData(data.history as History[])
-      })
-      .catch((error) => {
-        console.error('Error al obtener los datos', error)
-      })
-  }, [])
+  const { data }: UseQueryResult<Proposal[]> = useQuery('proposals', fetchData)
 
   return (
-    <Suspense
-      fallback={
-        <Stack spacing={2}>
-          <Skeleton animation='wave' height={100} />
-          <Skeleton animation='wave' height={500} />
-        </Stack>
-      }
-    >
+    <>
       {/* LISTA DE USUARIOS */}
-      <AvatarGroup max={10}>
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-      </AvatarGroup>
+      <Suspense fallback={<Skeleton animation='wave' height={100} />}>
+        <AvatarGroup max={10}>
+          <Avatar />
+          <Avatar />
+          <Avatar />
+          <Avatar />
+          <Avatar />
+          <Avatar />
+          <Avatar />
+        </AvatarGroup>
+      </Suspense>
 
       {/* LINEA DE TIEMPO */}
       <Timeline
@@ -66,14 +50,17 @@ const SectionProposalHistory = () => {
           },
         }}
       >
-        {data.map((item) => (
+        {data?.map((item) => (
           <TimelineItem key={crypto.randomUUID()}>
             {/* IZQUIERDA */}
             <TimelineOppositeContent>{item.time}</TimelineOppositeContent>
+
+            {/* SEPARADOR */}
             <TimelineSeparator>
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
+
             {/* DERECHA */}
             <TimelineContent>
               <Suspense fallback={<CardHistorySkeleton />}>
@@ -88,7 +75,7 @@ const SectionProposalHistory = () => {
           </TimelineItem>
         ))}
       </Timeline>
-    </Suspense>
+    </>
   )
 }
 

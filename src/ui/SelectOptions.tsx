@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import Typography from '@mui/material/Typography'
 
-interface Element {
+export interface ItemOfSelector {
   icon: JSX.Element
   text: string
   onClick: () => void
@@ -13,7 +13,7 @@ interface Element {
 
 interface Props {
   icon: JSX.Element
-  items: Element[]
+  items: ItemOfSelector[]
 }
 
 const SelectOptions = ({ icon, items }: Props) => {
@@ -34,7 +34,13 @@ const SelectOptions = ({ icon, items }: Props) => {
       {/* CONTENIDO MENU */}
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         {items.map((element) => (
-          <MenuItem onClick={element.onClick} key={crypto.randomUUID()}>
+          <MenuItem
+            onClick={() => {
+              element.onClick()
+              setAnchorEl(null)
+            }}
+            key={crypto.randomUUID()}
+          >
             <ListItemIcon>{element.icon}</ListItemIcon>
             <Typography variant='button' noWrap>
               {element.text}

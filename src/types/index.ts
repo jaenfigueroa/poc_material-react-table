@@ -8,7 +8,7 @@ export type Rule = {
   date: string
 }
 
-export type History = {
+export type Proposal = {
   id: number
   user: string
   reason: string

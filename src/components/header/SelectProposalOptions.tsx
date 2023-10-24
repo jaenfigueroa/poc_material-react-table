@@ -4,24 +4,31 @@ import HistoryIcon from '@mui/icons-material/History'
 import SyncAltIcon from '@mui/icons-material/SyncAlt'
 import Badge from '@mui/material/Badge'
 import StorageIcon from '@mui/icons-material/Storage'
+import { ItemOfSelector } from '../../ui/SelectOptions'
 
 const SelectOptions = lazy(() => import('../../ui/SelectOptions'))
 
-const ITEMS = [
+const ITEMS: ItemOfSelector[] = [
   {
     icon: <SyncAltIcon />,
     text: 'Sincronizar propuestas',
-    onClick: () => {},
+    onClick: () => {
+      console.log('Sincronizar propuestas')
+    },
   },
   {
     icon: <HistoryIcon />,
     text: 'Revertir propuestas no sincronizadas',
-    onClick: () => {},
+    onClick: () => {
+      console.log('Revertir propuestas no sincronizadas')
+    },
   },
   {
     icon: <DownloadIcon />,
     text: 'Descargar reportes',
-    onClick: () => {},
+    onClick: () => {
+      console.log('Descartar reportes')
+    },
   },
 ]
 

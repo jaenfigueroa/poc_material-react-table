@@ -2,7 +2,7 @@ import Avatar from '@mui/material/Avatar'
 import Chip from '@mui/material/Chip'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
-import useTheme from '@mui/material/styles/useTheme'
+import { useTheme } from '@mui/material'
 
 interface Props {
   user: string

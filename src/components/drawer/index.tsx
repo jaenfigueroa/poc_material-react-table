@@ -1,38 +1,26 @@
-import { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy, useContext } from 'react'
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
-import Button from '@mui/material/Button'
 import LinearProgress from '@mui/material/LinearProgress'
+import { DrawerContext } from './DrawerContext'
 
 const DrawerDivider = lazy(() => import('./DrawerDivider'))
 
 const DrawerMain = () => {
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false)
-
-  // ABRIR EL DRAWER
-  const toggleDrawer = (open: boolean) => () => {
-    setIsDrawerVisible(open)
-  }
+  const { isOpenDrawer, setIsOpenDrawer } = useContext(DrawerContext)
 
   return (
-    <>
-      <Button onClick={toggleDrawer(true)} sx={{ mt: 2 }}>
-        Abrir drawer
-      </Button>
-      <Drawer
-        anchor='right'
-        open={isDrawerVisible}
-        onClose={toggleDrawer(false)}
-      >
-        <Box sx={{ width: '600px' }}>
-          {/* CONTENDIDO */}
-          <Suspense fallback={<LinearProgress />}>
-            {/* <DrawerDivider /> */}
-            <DrawerDivider />
-          </Suspense>
-        </Box>
-      </Drawer>
-    </>
+    <Drawer
+      anchor='right'
+      open={isOpenDrawer}
+      onClose={() => setIsOpenDrawer(false)}
+    >
+      <Box sx={{ width: '600px' }}>
+        <Suspense fallback={<LinearProgress />}>
+          <DrawerDivider />
+        </Suspense>
+      </Box>
+    </Drawer>
   )
 }
 
