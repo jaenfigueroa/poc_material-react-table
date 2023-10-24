@@ -7,7 +7,7 @@ import useLocalStorage from '../hook/useLocalStorage'
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} })
 
-export const ToggleColorMode = ({ children }: PropsWithChildren) => {
+export const ThemeModeProvider = ({ children }: PropsWithChildren) => {
   // Utilizamos el hook useLocalStorage para almacenar y recuperar la preferencia del tema
   const [mode, setMode] = useLocalStorage<'light' | 'dark'>('theme', 'light')
 

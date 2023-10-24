@@ -3,37 +3,26 @@ import SelectTableOptions from './SelectTableOptions'
 import { Rule } from '../../../types'
 import { columns } from './columns'
 import { memo } from 'react'
-import { useState, useEffect } from 'react'
+import { useQuery, UseQueryResult } from 'react-query'
+
+const fetchData = async () => {
+  const response = await fetch(
+    'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/rules.json',
+  )
+  const data = await response.json()
+  return data.rules
+}
 
 const Table = memo(() => {
-  const [data, setData] = useState<Rule[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [isError, setIsError] = useState<boolean>(false)
-
-  // traer el array de reglas desde la API
-  useEffect(() => {
-    setIsLoading(true)
-
-    fetch(
-      'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/rules.json',
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // Asumiendo que los datos tienen una estructura similar a la interfaz Rule
-        setData(data.rules as Rule[])
-        setIsLoading(false)
-        // console.log(data.rules)
-      })
-      .catch((error) => {
-        console.error('Error al obtener los datos', error)
-        setIsError(true)
-      })
-  }, [])
+  const { data, error, isLoading }: UseQueryResult<Rule[]> = useQuery(
+    'rules',
+    fetchData,
+  )
 
   return (
     <MaterialReactTable
       columns={columns}
-      data={data}
+      data={data || []}
       enableColumnFilterModes // habilitar opciones de filtrado
       enableRowActions // habilitar acciones para la fila
       positionActionsColumn='last' // posicionar la columna de acciones al final
@@ -84,7 +73,7 @@ const Table = memo(() => {
       /* ESTADO DE LA TABLA */
       state={{
         isLoading: isLoading, // mostrar animacion de cargando la tabla
-        showAlertBanner: isError, // activar el banner superior para mostrar mensajes
+        showAlertBanner: Boolean(error), // activar el banner superior para mostrar mensajes
       }}
       /* MENSAJE DE LA ALERTA*/
       muiToolbarAlertBannerProps={{

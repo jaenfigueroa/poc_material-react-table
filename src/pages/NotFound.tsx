@@ -21,7 +21,7 @@ const NotFound = () => {
         ¡Ups! Ocurrio un error
       </Typography>
       <Link to='/login'>
-        <Button variant='contained'>Volver al Inicio</Button>
+        <Button variant='contained'>Volver</Button>
       </Link>
     </Box>
   )
