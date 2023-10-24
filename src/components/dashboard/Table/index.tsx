@@ -43,7 +43,9 @@ const Table = () => {
 
   // traer el array de reglas desde la API
   useEffect(() => {
-    fetch('/rules.json')
+    fetch(
+      'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/rules.json',
+    )
       .then((response) => response.json())
       .then((data) => {
         // Asumiendo que los datos tienen una estructura similar a la interfaz Rule

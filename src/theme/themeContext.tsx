@@ -1,6 +1,7 @@
 import { PropsWithChildren, createContext, useMemo } from 'react'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
+import { createTheme } from '@mui/material/'
+import CssBaseline from '@mui/material/CssBaseline'
 import { THEME_DARK, THEME_LIGHT } from './themes'
 import useLocalStorage from '../hook/useLocalStorage'
 

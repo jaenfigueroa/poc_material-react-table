@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box'
-import Img404 from '../../public/404.svg'
-import { Button } from '@mui/material'
+import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
+import { Typography } from '@mui/material'
 
 const NotFound = () => {
   return (
@@ -14,13 +14,12 @@ const NotFound = () => {
       height={'90vh'}
       gap={4}
     >
-      <img
-        src={Img404}
-        alt='Marinero con el numero 404 detras'
-        width={'90%'}
-        style={{ maxWidth: '350px' }}
-        loading='lazy'
-      />
+      <Typography variant='h1' component='span' fontWeight='bold'>
+        404
+      </Typography>
+      <Typography variant='h4' component='span' textAlign='center' color='gray'>
+        ¡Ups! Ocurrio un error
+      </Typography>
       <Link to='/login'>
         <Button variant='contained'>Volver al Inicio</Button>
       </Link>

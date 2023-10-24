@@ -8,11 +8,11 @@ import TimelineConnector from '@mui/lab/TimelineConnector'
 import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
 import Skeleton from '@mui/material/Skeleton'
+import Stack from '@mui/material/Stack'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
-import timelineOppositeContentClasses from '@mui/lab/TimelineOppositeContent/timelineOppositeContentClasses'
+import { timelineOppositeContentClasses } from '@mui/lab/TimelineOppositeContent/'
 import { History } from '../../types'
 import { CardHistorySkeleton } from '../../ui/skeletons/CardSkeleton'
-import { Stack } from '@mui/material'
 
 const CardHistory = lazy(() => import('./CardHistory'))
 
@@ -21,7 +21,9 @@ const SectionProposalHistory = () => {
 
   // traer el array de reglas desde la API
   useEffect(() => {
-    fetch('/history.json')
+    fetch(
+      'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/history.json',
+    )
       .then((response) => response.json())
       .then((data) => {
         // Asumiendo que los datos tienen una estructura similar a la interfaz History

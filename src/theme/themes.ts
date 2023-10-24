@@ -35,13 +35,13 @@ export const THEME_LIGHT: Theme = responsiveFontSizes(
       },
       background: {
         paper: '#fff',
-        default: '#fafafa',
+        default: '#fff',
       },
     },
   }),
   {
     factor: 5, // factor para la fuente responsive
-  }
+  },
 )
 
 export const THEME_DARK: Theme = createTheme({

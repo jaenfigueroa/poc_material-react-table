@@ -4,8 +4,8 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import ToogleTheme from '../../theme/toogleTheme'
-import useTheme from '@mui/material/styles/useTheme'
 import LinearProgress from '@mui/material/LinearProgress'
+import { useTheme } from '@mui/material'
 import { AppContext } from '../../context/AppContext'
 
 const SelectProposalOptions = lazy(() => import('./SelectProposalOptions'))

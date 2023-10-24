@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
+import LinearProgress from '@mui/material/LinearProgress'
 import { ToggleColorMode } from './theme/themeContext.tsx'
 import { AppRoutes } from './routes/AppRouter.tsx'
-import { LinearProgress } from '@mui/material'
 import { AppProvider } from './context/AppContext.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,5 +14,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </ToggleColorMode>
       </AppProvider>
     </Suspense>
-  </React.StrictMode>
+  </React.StrictMode>,
 )
