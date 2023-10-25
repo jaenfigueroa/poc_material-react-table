@@ -34,7 +34,12 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     accessorKey: 'type',
     size: 10,
     filterVariant: 'select',
-    filterSelectOptions: ['SECURITY_HOSTPOT', 'CODE_SMEEL'],
+    filterSelectOptions: [
+      'BUG',
+      'VULNERABILITY',
+      'CODE_SMELL',
+      'SECURITY_HOTSPOT',
+    ],
     enableColumnFilterModes: false,
   },
   {
@@ -42,7 +47,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     accessorKey: 'severity',
     size: 10,
     filterVariant: 'select',
-    filterSelectOptions: ['MINOR', 'MAJOR'],
+    filterSelectOptions: ['INFO', 'MINOR', 'MAJOR', 'CRITICAL', 'BLOCKER'],
     enableColumnFilterModes: false,
   },
   {
@@ -51,7 +56,10 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     accessorKey: 'state',
     size: 10,
     filterVariant: 'select',
-    filterSelectOptions: ['ACTIVE', 'DESACTIVE'],
+    filterSelectOptions: [
+      { text: 'ACTIVADO', value: 'ACTIVE' },
+      { text: 'DESACTIVADO', value: 'DESACTIVE' },
+    ],
     enableColumnFilterModes: false,
     // personalizar el renderizado de la celda
     Cell: ({ row }) => (
