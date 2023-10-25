@@ -3,9 +3,10 @@ import { Rule } from '../../types'
 import ContentCopy from '@mui/icons-material/ContentCopy'
 import Chip from '@mui/material/Chip'
 import { Button } from '@mui/material'
-import { getColorForType } from './helpers'
+import { getColorForType } from './helpers/getColorForType'
 import CheckIcon from '@mui/icons-material/Check'
 import NotInterestedIcon from '@mui/icons-material/NotInterested'
+import { formatDate } from './helpers/formatDate'
 
 export const columns: MRT_ColumnDef<Rule>[] = [
   {
@@ -50,7 +51,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     header: 'TIPO',
     accessorKey: 'type',
     maxSize: 5,
-    filterVariant: 'select',
+    filterVariant: 'multi-select',
     filterSelectOptions: [
       'BUG',
       'VULNERABILITY',
@@ -73,7 +74,7 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     header: 'SEVERIDAD',
     accessorKey: 'severity',
     maxSize: 5,
-    filterVariant: 'select',
+    filterVariant: 'multi-select',
     filterSelectOptions: ['INFO', 'MINOR', 'MAJOR', 'CRITICAL', 'BLOCKER'],
     enableColumnFilterModes: false,
   },
@@ -116,5 +117,6 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     // enableColumnFilterModes: false,
     sortingFn: 'datetime',
     filterFn: 'contains',
+    Cell: ({ row }) => formatDate(row.original.date),
   },
 ]
