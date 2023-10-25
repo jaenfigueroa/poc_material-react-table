@@ -4,7 +4,16 @@ import LinearProgress from '@mui/material/LinearProgress'
 import { ThemeModeProvider } from './theme/themeContext.tsx'
 import { AppRoutes } from './routes/AppRouter.tsx'
 import { AppProvider } from './context/AppContext.tsx'
+import { isMSWOn } from './config/worker.ts'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+if(import.meta.env.DEV && isMSWOn){
+  const { worker } = await import('../mocks/browser.ts')
+
+  await worker.start({
+    waitUntilReady: true
+  });
+}
 
 const queryClient = new QueryClient()
 
