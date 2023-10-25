@@ -7,7 +7,6 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'
-import { Stack } from '@mui/material'
 
 const initialValues = {
   email: '',
@@ -31,53 +30,48 @@ const Login = () => {
     <Grid container>
       <Grid item xs={12}>
         <Box
+          component={'form'}
           sx={{ width: '100%', maxWidth: '300px', margin: 'auto' }}
           display={'flex'}
           flexDirection={'column'}
           justifyContent={'center'}
           alignItems={'center'}
           height={'calc(100vh - 64px)'}
+          onSubmit={handleSubmit}
         >
-          <Stack
-            component={'form'}
-            spacing={2}
-            alignItems={'center'}
-            onSubmit={handleSubmit}
-          >
-            <Avatar style={{ width: 130, height: 130, marginBottom: '10px' }} />
-            <TextField
-              id='email'
-              label='Correo electrónico'
-              type='email'
-              name='email'
-              value={values.email}
-              onChange={handleChange}
-              margin='normal'
-              fullWidth
-              autoComplete='email'
-              size='small'
-            />
-            <TextField
-              id='password'
-              label='Contraseña'
-              type='password'
-              name='password'
-              value={values.password}
-              onChange={handleChange}
-              fullWidth
-              autoComplete='current-password'
-              size='small'
-            />
+          <Avatar style={{ width: 130, height: 130, marginBottom: '10px' }} />
+          <TextField
+            id='email'
+            label='Correo electrónico'
+            type='email'
+            name='email'
+            value={values.email}
+            onChange={handleChange}
+            margin='normal'
+            fullWidth
+            autoComplete='email'
+            size='small'
+          />
+          <TextField
+            id='password'
+            label='Contraseña'
+            type='password'
+            name='password'
+            value={values.password}
+            onChange={handleChange}
+            fullWidth
+            autoComplete='current-password'
+            size='small'
+          />
 
-            <Button
-              type='submit'
-              variant='contained'
-              color='primary'
-              style={{ width: '100%', marginTop: 20 }}
-            >
-              Iniciar Sesión
-            </Button>
-          </Stack>
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            style={{ width: '100%', marginTop: 20 }}
+          >
+            Iniciar Sesión
+          </Button>
         </Box>
       </Grid>
     </Grid>

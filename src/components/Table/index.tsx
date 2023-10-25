@@ -92,11 +92,49 @@ const Table = memo(() => {
       }}
       //memorizar las celdas de la tabla para mejorar el rendimiento, pero algunas funciones se rompen
       // estas funciones no son compatibles con el memorizado: density toggle, column resizing
-      memoMode='cells' // memoize table cells to improve render performance, but break some features
+      // memoMode='cells' // memoize table cells to improve render performance, but break some features
       // desactivar el cambio de densidad de las filas porque rompe la memorizacion de las celdas
       enableDensityToggle={false}
       // cambiar el idioma de la tabla a español
       localization={MRT_Localization_ES}
+      //PERSONALIZAR MAS LA TABLA
+      //footer de la tabla
+      // muiBottomToolbarProps={{
+      //   style: {
+      //     background: '#121212',
+      //   },
+      // }}
+      // //contenedor para copiar
+      // muiTableBodyCellCopyButtonProps={{
+      //   style: {
+      //     paddingLeft: '20px',
+      //   },
+      // }}
+      // todas las celdas de la tabla
+      // muiTableBodyCellProps={{
+      //   style: {
+      //     // padding: '0 30px',
+      //     // background: '#181818',
+      //   },
+      // }}
+      // //header de la tabla
+      // muiTableHeadCellProps={{
+      //   style: {
+      //     background: '#121212',
+      //   },
+      // }}
+      // muiTopToolbarProps={{
+      //   style: {
+      //     background: '#121212',
+      //   },
+      // }}
+      // muiTableBodyCellSkeletonProps={{
+      //   animation: 'wave',
+      //   variant: 'text',
+      //   style: {
+      //     margin: '20px 0',
+      //   },
+      // }}
     />
   )
 })

@@ -15,7 +15,7 @@ const DrawerMain = () => {
       open={isOpenDrawer}
       onClose={() => setIsOpenDrawer(false)}
     >
-      <Box sx={{ width: '600px' }}>
+      <Box width={{ sx: '100%', md: '600px' }} maxWidth={'600px'}>
         <Suspense fallback={<LinearProgress />}>
           <DrawerDivider />
         </Suspense>
