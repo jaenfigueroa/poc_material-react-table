@@ -31,9 +31,9 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <Header />
       <Routes>
-        {RoutesList.map((route, index) => (
+        {RoutesList.map((route) => (
           <Route
-            key={index}
+            key={crypto.randomUUID()}
             path={route.path}
             element={
               <Suspense fallback={<LinearProgress />}>{route.element}</Suspense>

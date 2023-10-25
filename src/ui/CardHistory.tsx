@@ -8,7 +8,6 @@ interface Props {
   user: string
   action: string
   reason: string
-  time: string
 }
 
 const CardHistory = (props: Props) => {
