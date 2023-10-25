@@ -1,5 +1,7 @@
 import { MRT_ColumnDef } from 'material-react-table'
 import { Rule } from '../../types'
+import ContentCopy from '@mui/icons-material/ContentCopy'
+import Chip from '@mui/material/Chip'
 
 export const columns: MRT_ColumnDef<Rule>[] = [
   {
@@ -14,6 +16,12 @@ export const columns: MRT_ColumnDef<Rule>[] = [
       { text: 'PHP', value: 'php' },
     ],
     enableColumnFilterModes: false, // desactivar el selector de tipos de coindcidencias del buscador
+    enableClickToCopy: true, // habilitar el boton de copiar
+    muiTableBodyCellCopyButtonProps: {
+      fullWidth: true,
+      startIcon: <ContentCopy />,
+      sx: { justifyContent: 'flex-start' },
+    },
   },
   {
     header: 'REGLA',
@@ -34,21 +42,36 @@ export const columns: MRT_ColumnDef<Rule>[] = [
     accessorKey: 'severity',
     size: 10,
     filterVariant: 'select',
-    filterSelectOptions: ['MINOR', 'MAYOR'],
+    filterSelectOptions: ['MINOR', 'MAJOR'],
     enableColumnFilterModes: false,
   },
   {
+    id: 'col-state',
     header: 'ESTADO',
     accessorKey: 'state',
     size: 10,
     filterVariant: 'select',
     filterSelectOptions: ['ACTIVE', 'DESACTIVE'],
     enableColumnFilterModes: false,
+    // personalizar el renderizado de la celda
+    Cell: ({ row }) => (
+      <Chip
+        variant='outlined'
+        label={row.original.state === 'ACTIVE' ? 'Activado' : 'Desactivado'}
+        color={row.original.state === 'ACTIVE' ? 'success' : 'error'}
+        size='small'
+      />
+    ),
+    // CENTRAR EL HEADER Y LAS CELDAS
+    // muiTableBodyCellProps: {
+    //   align: 'center',
+    // },
   },
   {
     header: 'FECHA',
     accessorKey: 'date',
     size: 10,
     enableColumnFilterModes: false,
+    sortingFn: 'datetime',
   },
 ]

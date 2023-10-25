@@ -4,6 +4,8 @@ import { MaterialReactTable } from 'material-react-table'
 import { Rule } from '../../types'
 import { columns } from './columns'
 import { useQuery, UseQueryResult } from 'react-query'
+//Import Material React Table Translations
+import { MRT_Localization_ES } from 'material-react-table/locales/es'
 
 const SelectTableOptions = lazy(() => import('./SelectTableOptions'))
 
@@ -63,8 +65,7 @@ const Table = memo(() => {
           paddingLeft: '8px',
         },
       }}
-      // desactivar el cambio de densidad de las filas
-      enableDensityToggle={false}
+      // personalizar el buscador global
       displayColumnDefOptions={{
         'mrt-row-actions': {
           header: '',
@@ -89,6 +90,13 @@ const Table = memo(() => {
         color: 'error',
         children: 'Error al cargar los datos de la tabla',
       }}
+      //memorizar las celdas de la tabla para mejorar el rendimiento, pero algunas funciones se rompen
+      // estas funciones no son compatibles con el memorizado: density toggle, column resizing
+      memoMode='cells' // memoize table cells to improve render performance, but break some features
+      // desactivar el cambio de densidad de las filas porque rompe la memorizacion de las celdas
+      enableDensityToggle={false}
+      // cambiar el idioma de la tabla a español
+      localization={MRT_Localization_ES}
     />
   )
 })
