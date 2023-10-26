@@ -3,14 +3,9 @@ import Chip from '@mui/material/Chip'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material'
+import { Proposal } from '../types'
 
-interface Props {
-  user: string
-  action: string
-  reason: string
-}
-
-const CardHistory = (props: Props) => {
+const CardHistory = (props: Proposal) => {
   const theme = useTheme()
   const isDarkMode = theme.palette.mode === 'dark'
 
