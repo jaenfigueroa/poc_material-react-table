@@ -1,6 +1,15 @@
 import { LinearProgress } from '@mui/material'
 import { Suspense, lazy } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import {
+  HashRouter,
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom'
+import { isHashed } from '../config/router'
+
+const RouterFn = isHashed ? HashRouter : BrowserRouter
 
 const Login = lazy(() => import('../pages/Login'))
 const Admin = lazy(() => import('../pages/Admin'))
@@ -28,7 +37,7 @@ const RoutesList = [
 
 export const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <RouterFn>
       <Header />
       <Routes>
         {RoutesList.map((route, index) => (
@@ -41,6 +50,6 @@ export const AppRoutes = () => {
           />
         ))}
       </Routes>
-    </BrowserRouter>
+    </RouterFn>
   )
 }
