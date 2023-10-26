@@ -12,6 +12,6 @@ export type Proposal = {
   id: number
   user: string
   reason: string
-  time: string
   action: string
+  date: string
 }
