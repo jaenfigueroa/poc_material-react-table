@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { DrawerProvider } from '../components/drawer/DrawerContext'
 import { LinearProgress } from '@mui/material'
 
-const Table = lazy(() => import('../components/Table'))
+const Table = lazy(() => import('../components/main/Table.tsx'))
 const DrawerMain = lazy(() => import('../components/drawer'))
 
 const Admin = () => {

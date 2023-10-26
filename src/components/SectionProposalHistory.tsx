@@ -53,7 +53,7 @@ const SectionProposalHistory = () => {
         {data?.map((item) => (
           <TimelineItem key={crypto.randomUUID()}>
             {/* IZQUIERDA */}
-            <TimelineOppositeContent>{item.time}</TimelineOppositeContent>
+            <TimelineOppositeContent>{item.date}</TimelineOppositeContent>
 
             {/* SEPARADOR */}
             <TimelineSeparator>
@@ -64,12 +64,7 @@ const SectionProposalHistory = () => {
             {/* DERECHA */}
             <TimelineContent>
               <Suspense fallback={<CardHistorySkeleton />}>
-                <CardHistory
-                  user={item.user}
-                  action={item.action}
-                  reason={item.reason}
-                  time={item.time}
-                />
+                <CardHistory {...item} />
               </Suspense>
             </TimelineContent>
           </TimelineItem>
