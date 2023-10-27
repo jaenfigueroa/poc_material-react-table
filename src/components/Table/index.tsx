@@ -10,9 +10,7 @@ import { MRT_Localization_ES } from 'material-react-table/locales/es'
 const SelectTableOptions = lazy(() => import('./SelectTableOptions'))
 
 const fetchData = async () => {
-  const response = await fetch(
-    'https://raw.githubusercontent.com/jaenfigueroa/cdn-example/main/new-rules-admin/rules.json',
-  )
+  const response = await fetch('/rules')
   const data = await response.json()
   return data.rules
 }
